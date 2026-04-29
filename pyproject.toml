@@ -11,6 +11,7 @@ requires-python = ">=3.12"
 dependencies = [
     "anyio>=4.12.1",
     "kurigram>=2.2.19",
+    "psutil>=7.2.2",
     "rich>=14.3.3",
     "tgcrypto>=1.2.5",
 ]
@@ -18,6 +19,7 @@ dependencies = [
 [project.scripts]
 upload = "hakimifr_scripts.bin.upload:entry"
 hash = "hakimifr_scripts.bin.hash:main"
+mem_usage = "hakimifr_scripts.bin.mem_usage:main"
 
 [build-system]
 requires = ["hatchling"]
