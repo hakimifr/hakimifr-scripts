@@ -98,8 +98,18 @@ def main():
                 RSS = Resident Set Size
                 PSS = Proportional Set Size
                 USS = Unique Set Size
-
-            [bold] * use PSS for casual comparison between apps.[/bold][/grey50]
+            [bold] * use PSS for casual comparison between apps.[/bold]
+             * Explanation: suppose process A and B use a shared lib Z, and Z uses 100 MB of RAM.
+                              RSS = - process A's RAM usage + 100 MB.
+                                    - process B's RAM usage + 100 MB.
+                              summing up RSS won't total up to the actual RAM usage, but [bold]exceeds[/bold] it.
+                              PSS = - process A's RAM usage + (100 MB / 2).
+                                    - process B's RAM usage + (100 MB / 2).
+                              summing up PSS will give [bold]exactly[/bold] the actual RAM usage.
+                              USS = - process A's RAM usage.
+                                    - process B's RAM usage.
+                              summing up USS won't total up to the actual RAM usage, but [bold]lower[/bold] than it.
+                            Windows' Task Manager is closest to PSS while btop reports RSS.[/grey50]
             """
         ),
     )
